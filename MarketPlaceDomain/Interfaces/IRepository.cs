@@ -14,6 +14,6 @@ namespace MarketPlace.Domain.Interfaces
         Task Atualizar(TEntity entity);
         Task Remover(Guid id);
         Task<IEnumerable<TEntity>> Buscar(Expression<Func<TEntity, bool>> predicate);
-        Task<int> SaveChages();
+        Task<int> SaveChanges();
     }
 }

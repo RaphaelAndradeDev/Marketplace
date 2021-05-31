@@ -29,12 +29,12 @@ namespace Marketplace.Data.Repositories
         public virtual async Task<TEntity> ObterPorId(Guid id)
         {
             return await DbSet.FindAsync(id);
-        }
+        } 
 
         public virtual async Task<List<TEntity>> ObterTodos()
         {
             return await DbSet.ToListAsync();
-        }
+        } 
 
         public virtual async Task Adicinar(TEntity entity)
         {
@@ -54,6 +54,12 @@ namespace Marketplace.Data.Repositories
             await SaveChanges();
         }
 
+        public virtual async Task Remover(TEntity entity)
+        {
+            DbSet.Remove(entity);
+            await SaveChanges();
+        }
+
         public async Task<int> SaveChanges()
         {
             return await Db.SaveChangesAsync();
@@ -62,6 +68,6 @@ namespace Marketplace.Data.Repositories
         public void Dispose()
         {
             Db?.Dispose();
-        }
+        }      
     }
 }

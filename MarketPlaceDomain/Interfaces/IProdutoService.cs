@@ -12,5 +12,6 @@ namespace MarketPlace.Domain.Interfaces
         Task Adicionar(Produto produto);
         Task Atualizar(Produto produto);
         Task Remover(Guid id);
+        Task Remover(Produto produto);
     }
 }

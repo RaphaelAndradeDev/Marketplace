@@ -41,9 +41,14 @@ namespace MarketPlace.Domain.Services
             await _produtoRepository.Remover(id);
         }
 
+        public async Task Remover(Produto produto)
+        {
+            await _produtoRepository.Remover(produto);
+        }
+
         public void Dispose()
         {
-            throw new NotImplementedException();
-        }
+            _produtoRepository?.Dispose();
+        }       
     }
 }

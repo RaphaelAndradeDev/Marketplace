@@ -1,4 +1,7 @@
 using Marketplace.Data.Context;
+using Marketplace.Data.Repositories;
+using MarketPlace.Domain.Interfaces;
+using MarketPlace.Domain.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -26,6 +29,9 @@ namespace Marketplace.Presentation
             });
 
             services.AddControllers();
+
+            services.AddScoped<IProdutoService, ProdutoService>();
+            services.AddScoped<IProdutoRepository, ProdutoRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
